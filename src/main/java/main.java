@@ -1,11 +1,16 @@
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class main {
+
+    public static Scanner scan = new Scanner(System.in);
+    public static Diccionario diccionrio = new Diccionario();
     public static void main(String[] args) {
-        ArrayList<String> lector = getDiccionario();
+        ArrayList<String> lector = diccionrio.getDiccionario();
         ArrayList<String[]> archivo = new ArrayList<>();
+        
 
         for (String operation: lector) {
             System.out.println("Operación: " + operation );
@@ -22,13 +27,15 @@ public class main {
 
         }
 
+        Menu(archivo);
+
         System.exit(0);
     }
 
     /**
      *
      * @return
-     */
+     
     public static ArrayList<String> getDiccionario() {
         FileDialog dialog = new FileDialog((Frame) null, "Seleccion el archivo con las operaciones");
         dialog.setMode(FileDialog.LOAD);
@@ -63,5 +70,80 @@ public class main {
             return null;
         }
     }
+*/
 
+    public static void Menu(ArrayList<String[]> archivo){
+        int opcion=0;
+        System.out.println("\nHola Bienvenido al programa que compite contra Google Translator");
+        do{
+
+            
+            try{
+                System.out.println("\nEn qué idioma de origen está lo que desea traducir?\n1.Ingles\n2.Español\n3.Frances\n4.Salir");
+
+                String menu=scan.nextLine();
+                opcion=Integer.parseInt(menu);
+
+
+                if(opcion==1){
+
+                    System.out.println("\nA qué idioma de destino desea traducirlo?\n1.Español\n2.Frances");
+                    String submenu=scan.nextLine();
+                    int subopcion=Integer.parseInt(submenu);
+
+                    if(subopcion==1){
+                        System.out.println("\nSe traducirá del Ingles al español\nIngrese el texto");
+                    }
+                    if(subopcion==2){
+                        System.out.println("\nSe traducirá del Ingles al frances\nIngrese el texto");
+                    }else{
+                        System.out.println("\nTOpcion no valida");
+                    }
+
+                }else if(opcion==2){
+
+                    System.out.println("\nA qué idioma de destino desea traducirlo?\n1.Ingles\n2.Frances");
+                    String submenu=scan.nextLine();
+                    int subopcion=Integer.parseInt(submenu);
+
+                    if(subopcion==1){
+                        System.out.println("\nSe traducirá del Español al ingles\nIngrese el texto");
+                    }
+                    if(subopcion==2){
+                        System.out.println("\nSe traducirá del Español al frances\nIngrese el texto");
+                    }else{
+                        System.out.println("\nTOpcion no valida");
+                    }
+
+                }else if(opcion==3){
+                    
+                    System.out.println("\nA qué idioma de destino desea traducirlo?\n1.Ingles\n2.Español");
+                    String submenu=scan.nextLine();
+                    int subopcion=Integer.parseInt(submenu);
+
+                    if(subopcion==1){
+                        System.out.println("\nSe traducirá del Frances al ingles\nIngrese el texto");
+                    }
+                    if(subopcion==2){
+                        System.out.println("\nSe traducirá del Frances al español\nIngrese el texto");
+                    }else{
+                        System.out.println("\nTOpcion no valida");
+                    }
+
+
+                }else if(opcion==4){
+
+                }else{
+                    System.out.println("\nOpcion no valida");
+                }
+
+
+            }catch(Exception e){
+                System.out.println("\nOpción no válida");
+            }
+            
+
+        }while(opcion!=4);
+
+    }
 }
