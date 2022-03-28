@@ -6,12 +6,11 @@ import java.util.Scanner;
 public class Main {
 
     public static Scanner scan = new Scanner(System.in);
-    public static Diccionario diccionrio = new Diccionario();
+    public static Diccionario diccionario = new Diccionario();
     public static void main(String[] args) {
-        ArrayList<String> lector = diccionrio.getDiccionario();
+        ArrayList<String> lector = diccionario.getDiccionario();
         ArrayList<String[]> archivo = new ArrayList<>();
-        
-
+       
         for (String operation: lector) {
             System.out.println("Operación: " + operation );
             String[] separador=operation.split(",");
@@ -74,6 +73,7 @@ public class Main {
 
     public static void Menu(ArrayList<String[]> archivo){
         int opcion=0;
+        BinarySearchTree search= new BinarySearchTree(); 
         System.out.println("\n Hola Bienvenido al programa que compite contra Google Translator");
         do{
 
@@ -93,6 +93,9 @@ public class Main {
 
                     if(subopcion==1){
                         System.out.println("\nSe traducirá del Ingles al español\n Ingrese el texto");
+                       System.out.println();
+                       	System.out.println(Diccionario.getDiccionario());
+
                     }
                     if(subopcion==2){
                         System.out.println("\nSe traducirá del Ingles al frances\n Ingrese el texto");
@@ -112,7 +115,7 @@ public class Main {
                     if(subopcion==2){
                         System.out.println("\nSe traducirá del Español al frances\nIngrese el texto");
                     }else{
-                        System.out.println("\nTOpcion no valida");
+                        System.out.println("\nOpci�n no valida");
                     }
 
                 }else if(opcion==3){
@@ -134,12 +137,12 @@ public class Main {
                 }else if(opcion==4){
 
                 }else{
-                    System.out.println("\n Opcion no valida");
+                    System.out.println("\n Opci�n no valida");
                 }
 
 
             }catch(Exception e){
-                System.out.println("\n Opción no válida");
+                System.out.println("\n Opci�n no valida");
             }
             
 

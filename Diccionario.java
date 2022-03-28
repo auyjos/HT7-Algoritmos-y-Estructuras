@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 public class Diccionario {
     public static ArrayList<String> getDiccionario() {
+    	BinarySearchTree search = new BinarySearchTree();
+    	
         FileDialog dialog = new FileDialog((Frame) null, "Seleccion el archivo con las operaciones");
         dialog.setMode(FileDialog.LOAD);
         dialog.setVisible(true);
@@ -12,7 +14,7 @@ public class Diccionario {
         
         try {
             File file = new File(dir);
-
+           
             if (!file.exists()) {
                 file.createNewFile();
             }
@@ -25,6 +27,8 @@ public class Diccionario {
                 while (line != null) {
                     data.add(line);
                     line = buffer.readLine();
+                   System.out.println( search.getTraduccion(file));
+                   System.out.println(search.get(file));
                 }
 
                 return data;
