@@ -1,11 +1,15 @@
 
 public class Traduccion {
-
+	
+	public String traduccionIng;
+	public String traduccionEsp  ;
+	public String traduccionFra;
+	
 	public Traduccion(String inglés , String español, String francés) {
 		
-	String traduccionIng= inglés;
-	String traduccionEsp = español;
-	String traduccionFra= francés;
+	traduccionIng= inglés;
+	 traduccionEsp = español;
+	 traduccionFra= francés;
 		
 	}
 

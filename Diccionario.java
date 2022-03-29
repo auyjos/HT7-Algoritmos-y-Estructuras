@@ -27,12 +27,16 @@ public class Diccionario {
                 while (line != null) {
                     data.add(line);
                     line = buffer.readLine();
-                   System.out.println( search.getTraduccion(file));
-                   System.out.println(search.get(file));
+                    
+                   
+                    System.out.println(line);
+                
                 }
 
                 return data;
-            } catch (FileNotFoundException fnte) {
+            }
+            
+            catch (FileNotFoundException fnte) {
                 fnte.printStackTrace();
                 return null;
             }

@@ -6,29 +6,24 @@ import java.util.Scanner;
 public class Main {
 
     public static Scanner scan = new Scanner(System.in);
-    public static Diccionario diccionario = new Diccionario();
+   
     public static void main(String[] args) {
-        ArrayList<String> lector = diccionario.getDiccionario();
-        ArrayList<String[]> archivo = new ArrayList<>();
-       
-        for (String operation: lector) {
-            System.out.println("Operación: " + operation );
-            String[] separador=operation.split(",");
-            archivo.add(separador);
-        }
-
-
-        System.out.println("\n");
-        for(int i=0; i<archivo.size();i++){
-
-            System.out.println(archivo.get(i)[0]+" "+archivo.get(i)[1]+" "+archivo.get(i)[2]);
-
-
-        }
-
-        Menu(archivo);
-
-        System.exit(0);
+        ArrayList<String> lector = Diccionario.getDiccionario();
+        BinarySearchTree <String> searchEsp = new BinarySearchTree<String>();
+    	BinarySearchTree <String>searchIng= new BinarySearchTree<String>();
+    	BinarySearchTree <String>searchFra= new BinarySearchTree<String>();
+    	
+    	for (int i=0; i< lector.size(); i++) {
+    		String[] separacion = lector.get(i).split(",");
+    		Traduccion translate = new Traduccion(separacion[0],separacion[1], separacion[2]);
+    		
+    		searchEsp.add(separacion[1], translate);
+    		searchIng.add(separacion[0], translate);
+    		searchFra.add(separacion[2], translate);
+    		
+    	}
+    	menu(searchEsp, searchIng, searchFra);
+    	
     }
 
     /**
@@ -71,9 +66,9 @@ public class Main {
     }
 */
 
-    public static void Menu(ArrayList<String[]> archivo){
+    public  static void menu(BinarySearchTree <String> searchEsp,BinarySearchTree <String> searchIng, BinarySearchTree <String> searchFra){
         int opcion=0;
-        BinarySearchTree search= new BinarySearchTree(); 
+        
         System.out.println("\n Hola Bienvenido al programa que compite contra Google Translator");
         do{
 
@@ -93,9 +88,13 @@ public class Main {
 
                     if(subopcion==1){
                         System.out.println("\nSe traducirá del Ingles al español\n Ingrese el texto");
-                       System.out.println();
-                       	System.out.println(Diccionario.getDiccionario());
-
+                    String palabraIng=scan.nextLine();
+                    
+                    Traduccion palabratraducida = searchIng.getTraduccion(palabraIng);
+                    System.out.println(palabratraducida.traduccionEsp);
+                  
+                    
+                       	
                     }
                     if(subopcion==2){
                         System.out.println("\nSe traducirá del Ingles al frances\n Ingrese el texto");
