@@ -26,46 +26,6 @@ public class Main {
     	
     }
 
-    /**
-     *
-     * @return
-     
-    public static ArrayList<String> getDiccionario() {
-        FileDialog dialog = new FileDialog((Frame) null, "Seleccion el archivo con las operaciones");
-        dialog.setMode(FileDialog.LOAD);
-        dialog.setVisible(true);
-        String dir = dialog.getDirectory() + dialog.getFile();
-        System.out.println(dir);
-
-        try {
-            File file = new File(dir);
-
-            if (!file.exists()) {
-                file.createNewFile();
-            }
-
-            try {
-                BufferedReader buffer = new BufferedReader(new FileReader(dir));
-                ArrayList<String> data = new ArrayList<>();
-                String line = buffer.readLine();
-
-                while (line != null) {
-                    data.add(line);
-                    line = buffer.readLine();
-                }
-
-                return data;
-            } catch (FileNotFoundException fnte) {
-                fnte.printStackTrace();
-                return null;
-            }
-        } catch (IOException ioException) {
-            ioException.printStackTrace();
-            return null;
-        }
-    }
-*/
-
     public  static void menu(BinarySearchTree <String> searchEsp,BinarySearchTree <String> searchIng, BinarySearchTree <String> searchFra){
         int opcion=0;
         
@@ -88,18 +48,21 @@ public class Main {
 
                     if(subopcion==1){
                         System.out.println("\nSe traducirá del Ingles al español\n Ingrese el texto");
-                    String palabraIng=scan.nextLine();
+                        String palabraIng=scan.nextLine();
                     
-                    Traduccion palabratraducida = searchIng.getTraduccion(palabraIng);
-                    System.out.println(palabratraducida.traduccionEsp);
-                  
-                    
-                       	
+                        Traduccion palabratraducida = searchIng.getTraduccion(palabraIng);
+                        System.out.println(palabratraducida.traduccionEsp);
+                   	
                     }
                     if(subopcion==2){
                         System.out.println("\nSe traducirá del Ingles al frances\n Ingrese el texto");
+                        String palabraIng=scan.nextLine();
+                    
+                        Traduccion palabratraducida = searchIng.getTraduccion(palabraIng);
+                        System.out.println(palabratraducida.traduccionFra);
+
                     }else{
-                        System.out.println("\n Opci�n no valida");
+                        System.out.println("\n Opci�n no valida");
                     }
 
                 }else if(opcion==2){
@@ -110,11 +73,19 @@ public class Main {
 
                     if(subopcion==1){
                         System.out.println("\nSe traducirá del Español al ingles\nIngrese el texto");
+                        String palabraEsp=scan.nextLine();
+                    
+                        Traduccion palabratraducida = searchEsp.getTraduccion(palabraEsp);
+                        System.out.println(palabratraducida.traduccionIng);
                     }
                     if(subopcion==2){
                         System.out.println("\nSe traducirá del Español al frances\nIngrese el texto");
+                        String palabraEsp=scan.nextLine();
+                    
+                        Traduccion palabratraducida = searchEsp.getTraduccion(palabraEsp);
+                        System.out.println(palabratraducida.traduccionFra);
                     }else{
-                        System.out.println("\nOpci�n no valida");
+                        System.out.println("\nOpci�n no valida");
                     }
 
                 }else if(opcion==3){
@@ -125,9 +96,17 @@ public class Main {
 
                     if(subopcion==1){
                         System.out.println("\nSe traducirá del Frances al ingles\nIngrese el texto");
+                        String palabraFra=scan.nextLine();
+                    
+                        Traduccion palabratraducida = searchEsp.getTraduccion(palabraFra);
+                        System.out.println(palabratraducida.traduccionIng);
                     }
                     if(subopcion==2){
                         System.out.println("\n Se traducirá del Frances al español\nIngrese el texto");
+                        String palabraFra=scan.nextLine();
+                    
+                        Traduccion palabratraducida = searchEsp.getTraduccion(palabraFra);
+                        System.out.println(palabratraducida.traduccionEsp);
                     }else{
                         System.out.println("\n Opcion no valida");
                     }
@@ -135,13 +114,15 @@ public class Main {
 
                 }else if(opcion==4){
 
+                    System.exit(0);
+
                 }else{
-                    System.out.println("\n Opci�n no valida");
+                    System.out.println("\n Opci�n no valida");
                 }
 
 
             }catch(Exception e){
-                System.out.println("\n Opci�n no valida");
+                System.out.println("\n Opci�n no valida");
             }
             
 

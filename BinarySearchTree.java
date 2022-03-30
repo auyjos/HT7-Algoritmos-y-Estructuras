@@ -149,18 +149,12 @@ public class BinarySearchTree<T extends java.lang.Comparable<T>> {
 	return node;
     }
 
-    /* remove a value from the tree, if it exists
-     * @param	key such that value.compareTo(key) == 0 for the node to remove
-     */
-    public void remove(T key) {
-	root = remove(key, root);
-    }
 
     /* remove a value from the tree, if it exists
      * @param	key such that value.compareTo(key) == 0 for the node to remove
      * @param	node the root of the subtree from which to remove the value
      * @return	the new tree with the value removed
-     */
+     
     protected BinaryNode<T> remove(T value, BinaryNode<T> node) {
 	if (node == null) {	// key not in tree
 	    return null;
@@ -189,6 +183,7 @@ public class BinarySearchTree<T extends java.lang.Comparable<T>> {
 	}
 	return node;
     }
+    */
 
     protected T getRightmost(BinaryNode<T> node) {
 	assert(node != null);
@@ -214,22 +209,6 @@ public class BinarySearchTree<T extends java.lang.Comparable<T>> {
     public Iterator<T> postIterator() {
 	return new TreeIterator(root, false);
     }
-
-    /* toString
-     * @returns	the string representation of the tree.
-     */
-    public String toString() {
-	return toString(root);
-    }
-
-    protected String toString(BinaryNode<T> node) {
-	if (node == null) {
-	    return "";
-	}
-	return node.item.toString() + "(" + toString(node.left) + ", " +
-	    toString(node.right) + ")";
-    }
-
 
     /* an iterator class to iterate over binary trees
      * @author	Biagioni, Edoardo
@@ -412,34 +391,7 @@ public class BinarySearchTree<T extends java.lang.Comparable<T>> {
             }
         }
     
-        /* not implemented */
-        public void remove() {
-            throw new java.lang.UnsupportedOperationException("remove");
-        }
-    
-        /* give the entire state of the iterator: the tree and the two stacks */
-        public String toString() {
-            if (preorder) {
-                return "pre: " + toString(root) + "\n" + visiting + "\n";
-            }
-            if (inorder) {
-                return "in: " + toString(root) + "\n" + visiting + "\n";
-            }
-            if (postorder) {
-                return "post: " + toString(root) + "\n" + visiting + "\n" +
-            	visitingRightChild;
-            }
-            return "none of pre-order, in-order, or post-order are true";
-        }
-    
-        private String toString(BinaryNode<T> node) {
-            if (node == null) {
-                return "";
-            } else {
-                return node.toString() + "(" + toString(node.left) + ", " +
-            	   toString(node.right) + ")";
-            }
-        }
+        
 
     }
 }
