@@ -5,10 +5,10 @@ public class Traduccion {
 	public String traduccionEsp  ;
 	public String traduccionFra;
 	
-	public Traduccion(String ingles , String español, String frances) {
+	public Traduccion(String ingles , String espanol, String frances) {
 		
 	traduccionIng= ingles;
-	 traduccionEsp = español;
+	 traduccionEsp = espanol;
 	 traduccionFra= frances;
 		
 	}
